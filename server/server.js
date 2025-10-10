@@ -14,7 +14,7 @@ const app = express()
 await connectDB()
 await connectCloudinary()
 
-app.use(cors())
+app.use(cors({origin: process.env.FRONTEND_URL || '*'}))
 app.use(clerkMiddleware())
 
 app.get('/', (req, res)=> res.send("API Working"))
